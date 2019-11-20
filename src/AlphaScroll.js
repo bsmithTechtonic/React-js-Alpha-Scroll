@@ -18,7 +18,7 @@ class AlphaScroll extends PureComponent {
     const yCoord = e.touches ? e.touches[0].clientY : e.clientY;
     const letterCoords = this.alphaScrollRefs.map(letter => {
       const rect = letter.getBoundingClientRect();
-      return [rect.x, rect.y];
+      return [rect.x, (rect.top + rect.bottom) / 2];
     });
     const distances = [];
     letterCoords.forEach(letter => {
